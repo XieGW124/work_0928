@@ -100,9 +100,8 @@ h1 span { font-size: 32px; font-weight: 400; letter-spacing: 0; color: var(--sub
 /* 作品图像是实际网站截图。Grid 管布局，CSS 过渡负责轻微悬停效果。 */
 #portfolio { background: #f4f2eb; }
 .portfolio-list { padding: 0; margin: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
-.work-card { min-width: 0; }
 .work-card > a { display: block; height: 100%; border: 1px solid #ddd8cb; border-radius: 6px; overflow: hidden; background: #fffdf8; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.work-card > a:hover { text-decoration: none; transform: translateY(-4px); border-color: #b7a88d; box-shadow: 0 14px 30px #34433810; }
+.work-card > a:hover { text-decoration: none; transform: translateY(-50px) rotate(-10deg); border-color: #b7a88d; box-shadow: 0 16px 38px rgba(6, 235, 185, 0.14);}
 .work-card > a:focus-visible { outline-offset: 5px; }
 .work-cover { background: #e5e0d1; padding: 24px; overflow: hidden; }
 .work-community .work-cover { background: #dbe5dc; }
