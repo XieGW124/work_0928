@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- noindex：课程练习站点，不希望被搜索引擎收录 -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="课程练习：个人介绍、技能与作品门户。">
+  <title>我的个人主页</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <!-- 脚本全部 defer：HTML 解析完成后按顺序执行，不阻塞渲染。
+       works-data.js（作品数据）必须先于 works-render.js（渲染逻辑）加载。 -->
+  <script src="works-data.js" defer></script>
+  <script src="works-render.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- 无障碍：键盘用户可跳过导航直达正文 -->
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <!-- 顶部阅读进度条：宽度由 app.js 按滚动比例设置 -->
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       头部导航
+       维护：新增/删除栏目时，在这里同步增删 <a href="#栏目ID">，
+       页面主体再放一个 id 相同的 <section> 即可，其余自动生效
+       （当前项高亮、右下角指示器由 app.js 依据这里的文字生成）。
+       ════════════════════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#about">我的主页</a>
+      <nav aria-label="主导航">
+        <a href="#about">关于</a>
+        <a href="#experience">经历</a>
+        <a href="#projects">科研</a>
+        <a href="#skills">技能</a>
+        <a href="#portfolio">作品</a>
+        <a href="#teaching">教学</a>
+        <a href="#publications">成果</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ════════════════════════════════════════════════════════════
+         内容维护指南
+         · 新增栏目：复制下方任意一个 <section class="section"> 块，
+           改掉 id 与标题文字，并到顶部 <nav> 加一个对应链接。
+         · 新增作品：只改 works-data.js（数据与视图分离），不动本文件。
+         · 栏目淡入、导航高亮等交互由 app.js 自动接管，无需额外代码。
+         · 所有栏目共用 section → container → 标题/内容 结构，
+           样式统一由 styles.css 控制。
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- ──────────────── ① 关于（首屏）──────────────── -->
+    <!-- 练习：修改姓名、研究方向、头像路径和联系方式。 -->
+    <section class="hero" id="about">
+      <div class="container">
+        <div class="hero-top">
+          <div class="hero-copy">
+            <h1>谢光文<span>Xie</span></h1>
+            <p class="hero-role">人工智能技术应用专业学生 · 前端开发学习者</p>
+            <p class="hero-school">广东科学技术职业学院 · 25大模型应用开发班</p>
+          </div>
+          <div class="hero-visual">
+            <figure>
+              <img src="assets/avatar.svg" alt="个人头像占位图，请替换为自己的图片" width="220" height="220">
+            </figure>
+          </div>
+        </div>
+
+        <div class="research-direction" id="research-direction">
+          <span class="eyebrow">学习方向</span>
+          <p>HTML5、CSS3、JavaScript，正在学习 Git、数据库与网站部署。</p>
+        </div>
+
+        <!-- 基本资料：四格信息卡，按需增删 <div> 格子（桌面端自动均分） -->
+        <div class="profile-details">
+          <div>
+            <span>学习阶段</span>
+            <p>在校学习</p>
+          </div>
+          <div>
+            <span>所在城市</span>
+            <p>珠海</p>
+          </div>
+          <div>
+            <span>联系</span>
+            <p>134xxxxxx49</p>
+          </div>
+          <div>
+            <span>学校地址</span>
+            <p>广东省珠海市金湾区</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── ② 教育与工作经历 ──────────────── -->
+    <!-- 练习：复制 .experience-item 可增加一条自己的经历。 -->
+    <section class="section" id="experience">
+      <div class="container">
+        <header class="section-heading">
+          <h2>教育与工作经历</h2>
+        </header>
+        <div class="section-content">
+          <div class="experience-item">
+            <p class="experience-heading">
+              <strong>广东科学技术职业学院 · 人工智能技术应用专业</strong>
+              <time>在读</time>
+            </p>
+            <p class="experience-detail">学习网页开发，用项目记录成长。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── ③ 项目经历 ──────────────── -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-heading">
+          <h2>项目经历</h2>
+        </header>
+        <div class="section-content">
+          <article class="research-item">
+            <h3><time>课程练习</time>个人主页</h3>
+            <p>项目内容：制作自己的网页，展示资料与作品，记录修改、测试与发布过程。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── ④ 技能与实践 ──────────────── -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="section-heading">
+          <h2>技能与实践</h2>
+        </header>
+        <div class="section-content">
+          <ul class="skills-list">
+            <li><strong>网页内容</strong>HTML5 结构、图片、链接。</li>
+            <li><strong>页面样式</strong>CSS3 字体、颜色、响应式布局。</li>
+            <li><strong>开发过程</strong>JavaScript、Git、检查与部署。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── ⑤ 作品门户 ──────────────── -->
+    <!-- 卡片不写在 HTML 里：works-render.js 依据 works-data.js 渲染，
+         增删作品、改标题、换封面只动数据文件，天然不会出现两处不同步。
+         筛选/排序工具条里的按钮同样由 JS 生成，不写 JS 时页面照常显示
+         noscript 兜底提示。 -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <header class="section-heading">
+          <h2>作品门户</h2>
+        </header>
+
+        <div class="works-toolbar">
+          <div class="works-tags" id="works-tags"></div>
+          <button class="works-sort" id="works-sort" type="button">按年份：新→旧</button>
+        </div>
+
+        <noscript>
+          <p class="works-notice">作品列表需要 JavaScript 渲染；当前未启用脚本，作品清单见 works-data.js。</p>
+        </noscript>
+        <ol class="portfolio-list"></ol>
+      </div>
+    </section>
+
+    <!-- ──────────────── ⑥ 学习与实践 ──────────────── -->
+    <section class="section" id="teaching">
+      <div class="container">
+        <header class="section-heading">
+          <h2>学习与实践</h2>
+        </header>
+        <div class="section-content">
+          <div class="teaching-group">
+            <h3>本学期目标</h3>
+            <ol>
+              <li>每次课完成一个可运行的小改动。</li>
+              <li>能解释自己修改的 HTML、CSS 和 JavaScript。</li>
+              <li>使用 Git 记录版本，让作品能被别人访问。</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────── ⑦ 学习记录 ──────────────── -->
+    <section class="section" id="publications">
+      <div class="container">
+        <header class="section-heading">
+          <h2>学习记录</h2>
+        </header>
+        <div class="section-content">
+          <div class="publication-group">
+            <h3>我的记录</h3>
+            <ol class="references">
+              <li>完成第一张个人主页。</li>
+              <li>后续在这里补充自己的真实成果。</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 以下两块由 app.js 控制：不写 JS 时它们存在但不可见 -->
+  <p class="section-indicator" id="section-indicator" aria-live="polite"></p>
+  <button class="to-top" id="to-top" type="button" aria-label="返回页面顶部">↑</button>
+
+  <footer>
+    <div class="container footer-inner">
+      <a href="#about">回到顶部</a>
+      <a href="#portfolio">作品门户</a>
+    </div>
+  </footer>
+
+</body>
+</html>
